@@ -18,3 +18,16 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 }
+
+task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
+    script = project.file('node_modules/.bin/webpack')
+    args = [
+            '--mode', 'development',
+            '--entry', './src/main/webapp/javascript/main.jsx',
+            '-o', './src/main/resources/static/dist/react-app.js'
+    ]
+}
+
+processResources.dependsOn 'buildReactApp'
+clean.delete << file('node_modules')
+clean.delete << file('src/main/resources/static/dist')

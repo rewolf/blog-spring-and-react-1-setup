@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-import '../css/demo-component.css';
+import '../css/Main.css';
 
-class DemoComponent extends Component {
+class Main extends Component {
     render() {
         return (
-            <div id="demo-component">
+            <div id="main">
                 <h1>Demo Component</h1>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"/>
             </div>
@@ -14,6 +14,6 @@ class DemoComponent extends Component {
 }
 
 ReactDOM.render(
-    <DemoComponent />,
+    <Main />,
     document.getElementById('react-mountpoint')
 );

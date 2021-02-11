@@ -1,5 +1,8 @@
 module.exports = {
     devtool: 'source-map',
+    output: {
+        filename: 'react-app.js'
+    },
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
@@ -11,7 +14,7 @@ module.exports = {
         }, {
             test: /\.css$/,
             exclude: /node_modules/,
-            loader: "style-loader!css-loader"
+            use: ['style-loader', 'css-loader']
         }]
     },
     resolve: {
